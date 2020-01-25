@@ -12,6 +12,11 @@ namespace GestionDeProyectosPM
 
 
         //Metodos
+        public virtual float getHours()
+        {
+            return 0;
+        }
+        /*
         public float getHours()
         {
             switch (Difficulty)
@@ -30,5 +35,6 @@ namespace GestionDeProyectosPM
                     break;
             }
         }
+        */
     }
 }
