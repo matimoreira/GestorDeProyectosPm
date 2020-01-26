@@ -21,17 +21,17 @@ namespace GestionDeProyectosPM
 
             var task = new TaskEasy();
             task.UserStory = userStory;
-            task.Estimate = 10;
+            task.Estimate = 5;
             task.Difficulty = Difficulty.easy;
 
             var task1 = new TaskComplicated();
             task1.UserStory = userStory1;
-            task1.Estimate = 10;
+            task1.Estimate = 5;
             task1.Difficulty = Difficulty.compliacted;
 
             var task2 = new TaskSuperComplicated();
             task2.UserStory = userStory2;
-            task2.Estimate = 10;
+            task2.Estimate = 5;
             task2.Difficulty = Difficulty.superComplicated;
 
             var sprintBacklog = new SprintBacklog();
@@ -44,12 +44,25 @@ namespace GestionDeProyectosPM
             var project = new Project();
             project.addSprintBacklog(sprintBacklog);
             project.addSprintBacklog(sprintBacklog1);
-            Console.WriteLine("Horas de la tarea: " + task.getHours().ToString());
-            Console.WriteLine("Horas de la tarea: " + task1.getHours().ToString());
-            Console.WriteLine("Horas de la tarea: " + task2.getHours().ToString());
-            Console.WriteLine("Horas del backlog: " + sprintBacklog.getHours().ToString());
-            Console.WriteLine("Horas del backlog: " + sprintBacklog1.getHours().ToString());
-            Console.WriteLine("Horas del project: " + project.getHours().ToString());
+            
+            Console.WriteLine("Cantidad de horas del Proyecto: " + project.getHours().ToString());
+            foreach (var _sprint in project.getAllSprintsBacklogs())
+            {
+                Console.WriteLine("\nCantidad de horas en este sprint: " + _sprint.getHours());
+                foreach (var _task in _sprint.getAllTasks())
+                {
+                    Console.WriteLine("Tarea");
+                    Console.WriteLine("Dificultad: " + _task.Difficulty.ToString());
+                    Console.WriteLine("Estimacion: " + _task.Estimate.ToString());
+                    Console.WriteLine("Horas: " + _task.getHours().ToString());
+                    Console.WriteLine("User Story");
+                    Console.WriteLine("How: " + _task.UserStory.how);
+                    Console.WriteLine("Want: " + _task.UserStory.want);
+                    Console.WriteLine("To: " + _task.UserStory.to + "\n");
+                }
+            }
+
+            Console.ReadKey();
         }
     }
 }
