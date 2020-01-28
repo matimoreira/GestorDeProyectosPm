@@ -27,7 +27,7 @@ namespace GestionDeProyectosPM
             var task1 = new TaskComplicated();
             task1.UserStory = userStory1;
             task1.Estimate = 5;
-            task1.Difficulty = Difficulty.compliacted;
+            task1.Difficulty = Difficulty.complicated;
 
             var task2 = new TaskSuperComplicated();
             task2.UserStory = userStory2;
